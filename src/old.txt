@@ -1,0 +1,16 @@
+ const [loginstatus,setStatus]=useState(false);
+var session_url = 'http://httpbin.org/basic-auth/admin/admin';
+var username = 'admin';
+var password = 'admin';
+axios.post(session_url, {}, {
+  params: {
+    user: username,
+    passwd:password
+  }
+}).then(function(response) {
+  console.log('Authenticated');
+  setStatus(loginstatus=true);
+  
+}).catch(function(error) {
+  console.log('Error on Authentication');
+});
